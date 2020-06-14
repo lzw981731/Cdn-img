@@ -89,7 +89,7 @@ function upload($url, $content)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES["pic"]["error"] <= 0 && $_FILES["pic"]["size"] >100 ) {
 //这里是长文件名
 //    $filename = date('Y') . '/' . date('m') . '/' . date('d') . '/' . md5(time().mt_rand(10,100)) . ".png";
-    $filename = date('Y') . '/' . date('m') . '/' . date('d') . '/' . substr(md5(time()) , 0 , 6) . ".png";
+    $filename = date('Y') . '/' . date('m') . '/' . date('d') . '/' . substr(md5(time()) , 0 , 4) . ".png";
     $url = "https://api.github.com/repos/" . USER . "/" . REPO . "/contents/" . $filename;
     $tmpName = './tmp' . md5($filename);
     move_uploaded_file($_FILES['pic']['tmp_name'], $tmpName);
